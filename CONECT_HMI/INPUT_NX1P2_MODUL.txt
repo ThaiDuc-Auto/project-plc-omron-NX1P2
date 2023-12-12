@@ -1,0 +1,83 @@
+HOST	NAME	DATATYPE	ADDRESS	COMMENT	TAGLINK	RW	POU
+	start_hmi	BOOL			TRUE	RW	
+	stop_hmi	BOOL			TRUE	RW	
+	dong_co	BOOL	BuiltInIO://cpu/#0/Output_Bit_00		TRUE	RW	
+	ID5442_IN_0	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 00		TRUE	RW	
+	ID5442_IN_1	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 01		TRUE	RW	
+	ID5442_IN_2	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 02		TRUE	RW	
+	ID5442_IN_3	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 03		TRUE	RW	
+	ID5442_IN_4	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 04		TRUE	RW	
+	ID5442_IN_5	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 05		TRUE	RW	
+	ID5442_IN_6	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 06		TRUE	RW	
+	ID5442_IN_7	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 07		TRUE	RW	
+	ID5442_IN_8	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 08		TRUE	RW	
+	ID5442_IN_9	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 09		TRUE	RW	
+	ID5442_IN_10	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 10		TRUE	RW	
+	ID5442_IN_11	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 11		TRUE	RW	
+	ID5442_IN_12	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 12		TRUE	RW	
+	ID5442_IN_13	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 13		TRUE	RW	
+	ID5442_IN_14	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 14		TRUE	RW	
+	ID5442_IN_15	BOOL	ECAT://node#[86,4]/Input Bit 16 bits/Input Bit 15		TRUE	RW	
+	ID5342_IN_0	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 00		TRUE	RW	
+	ID5342_IN_1	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 01		TRUE	RW	
+	ID5342_IN_2	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 02		TRUE	RW	
+	ID5342_IN_3	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 03		TRUE	RW	
+	ID5342_IN_4	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 04		TRUE	RW	
+	ID5342_IN_5	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 05		TRUE	RW	
+	ID5342_IN_6	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 06		TRUE	RW	
+	ID5342_IN_7	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 07		TRUE	RW	
+	ID5342_IN_8	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 08		TRUE	RW	
+	ID5342_IN_9	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 09		TRUE	RW	
+	ID5342_IN_10	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 10		TRUE	RW	
+	ID5342_IN_11	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 11		TRUE	RW	
+	ID5342_IN_12	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 12		TRUE	RW	
+	ID5342_IN_13	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 13		TRUE	RW	
+	ID5342_IN_14	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 14		TRUE	RW	
+	ID5342_IN_15	BOOL	ECAT://node#[86,3]/Input Bit 16 bits/Input Bit 15		TRUE	RW	
+	NX1P2_IN_0	BOOL	BuiltInIO://cpu/#0/Input_Bit_00		TRUE	RW	
+	NX1P2_IN_1	BOOL	BuiltInIO://cpu/#0/Input_Bit_01		TRUE	RW	
+	NX1P2_IN_2	BOOL	BuiltInIO://cpu/#0/Input_Bit_02		TRUE	RW	
+	NX1P2_IN_3	BOOL	BuiltInIO://cpu/#0/Input_Bit_03		TRUE	RW	
+	NX1P2_IN_4	BOOL	BuiltInIO://cpu/#0/Input_Bit_04		TRUE	RW	
+	NX1P2_IN_5	BOOL	BuiltInIO://cpu/#0/Input_Bit_05		TRUE	RW	
+	NX1P2_IN_6	BOOL	BuiltInIO://cpu/#0/Input_Bit_06		TRUE	RW	
+	NX1P2_IN_7	BOOL	BuiltInIO://cpu/#0/Input_Bit_07		TRUE	RW	
+	NX1P2_IN_8	BOOL	BuiltInIO://cpu/#0/Input_Bit_08		TRUE	RW	
+	NX1P2_IN_9	BOOL	BuiltInIO://cpu/#0/Input_Bit_09		TRUE	RW	
+	NX1P2_IN_10	BOOL	BuiltInIO://cpu/#0/Input_Bit_10		TRUE	RW	
+	NX1P2_IN_11	BOOL	BuiltInIO://cpu/#0/Input_Bit_11		TRUE	RW	
+	NX1P2_IN_12	BOOL	BuiltInIO://cpu/#0/Input_Bit_12		TRUE	RW	
+	REGISTER_GX_OUT	WORD	ECAT://node#1/Write output 1st word		TRUE	RW	
+	NX1P2_IN_13	BOOL	BuiltInIO://cpu/#0/Input_Bit_13		TRUE	RW	
+	REGISTER_ID5342	WORD	ECAT://node#[86,3]/Input Bit 16 bits		TRUE	RW	
+	REGISTER_ID5442	WORD	ECAT://node#[86,4]/Input Bit 16 bits		TRUE	RW	
+	IN_GX_0	BOOL	ECAT://node#1/Read input 1st word/In Bit00		TRUE	RW	
+	IN_GX_1	BOOL	ECAT://node#1/Read input 1st word/In Bit01		TRUE	RW	
+	IN_GX_2	BOOL	ECAT://node#1/Read input 1st word/In Bit02		TRUE	RW	
+	IN_GX_3	BOOL	ECAT://node#1/Read input 1st word/In Bit03		TRUE	RW	
+	IN_GX_4	BOOL	ECAT://node#1/Read input 1st word/In Bit04		TRUE	RW	
+	IN_GX_5	BOOL	ECAT://node#1/Read input 1st word/In Bit05		TRUE	RW	
+	IN_GX_6	BOOL	ECAT://node#1/Read input 1st word/In Bit06		TRUE	RW	
+	IN_GX_7	BOOL	ECAT://node#1/Read input 1st word/In Bit07		TRUE	RW	
+	IN_GX_8	BOOL	ECAT://node#1/Read input 1st word/In Bit08		TRUE	RW	
+	IN_GX_9	BOOL	ECAT://node#1/Read input 1st word/In Bit09		TRUE	RW	
+	IN_GX_10	BOOL	ECAT://node#1/Read input 1st word/In Bit10		TRUE	RW	
+	IN_GX_11	BOOL	ECAT://node#1/Read input 1st word/In Bit11		TRUE	RW	
+	IN_GX_12	BOOL	ECAT://node#1/Read input 1st word/In Bit12		TRUE	RW	
+	IN_GX_13	BOOL	ECAT://node#1/Read input 1st word/In Bit13		TRUE	RW	
+	IN_GX_14	BOOL	ECAT://node#1/Read input 1st word/In Bit14		TRUE	RW	
+	IN_GX_15	BOOL	ECAT://node#1/Read input 1st word/In Bit15		TRUE	RW	
+	REGISTER_IN_GX	WORD	ECAT://node#1/Read input 1st word		TRUE	RW	
+	DONG_CO_A1	BOOL	BuiltInIO://cpu/#0/Output_Bit_01		TRUE	RW	
+	DONG_CO_A2	BOOL	BuiltInIO://cpu/#0/Output_Bit_02		TRUE	RW	
+	START_HMI_2	BOOL			TRUE	RW	
+	STOP_HMI_2	BOOL			TRUE	RW	
+	OD4256_REGISTER	BYTE	ECAT://node#[86,2]/Output Bit 8 bits		TRUE	RW	
+	OD5121_REGISTER	WORD	ECAT://node#[86,1]/Output Bit 16 bits		TRUE	RW	
+	SS1_START_1	BOOL			TRUE	RW	
+	SS1_STOP_1	BOOL			TRUE	RW	
+	SS1_LEFT_1	BOOL			TRUE	RW	
+	SS1_RIGHT_1	BOOL			TRUE	RW	
+	SS1_DC_THUAN_1	BOOL	BuiltInIO://cpu/#0/Output_Bit_03		TRUE	RW	
+	SS1_DC_NGHICH_1	BOOL	BuiltInIO://cpu/#0/Output_Bit_04		TRUE	RW	
+	SS1_M4	BOOL			TRUE	RW	

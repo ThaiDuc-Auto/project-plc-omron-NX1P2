@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpFiles>
+	<HelpDirectoryPaths>
+		<HelpDirectoryPath culture="ja-JP" path="ja-JP"/>
+		<HelpDirectoryPath culture="en-US" path="en-US"/>
+		<HelpDirectoryPath culture="de-DE" path="en-US"/>
+		<HelpDirectoryPath culture="es-ES" path="en-US"/>
+		<HelpDirectoryPath culture="fr-FR" path="en-US"/>
+		<HelpDirectoryPath culture="it-IT" path="en-US"/>
+		<HelpDirectoryPath culture="ko-KR" path="en-US"/>
+		<HelpDirectoryPath culture="zh-CN" path="en-US"/>
+		<HelpDirectoryPath culture="zh-TW" path="en-US"/>
+	</HelpDirectoryPaths>
+	<PouHelpMap>
+		<Pou name="OmronLib\MQTT_Comm\MQTTClient" helpID="2001"/>
+		<Pou name="OmronLib\MQTT_Comm\MQTTPubAryByte" helpID="2002"/>
+		<Pou name="OmronLib\MQTT_Comm\MQTTPubString" helpID="2003"/>
+		<Pou name="OmronLib\MQTT_Comm\MQTTSubAryByte" helpID="2004"/>
+		<Pou name="OmronLib\MQTT_Comm\MQTTSubString" helpID="2005"/>
+		<Pou name="OmronLib\MQTT_Comm\MQTTPing" helpID="2006"/>
+	</PouHelpMap>
+</HelpFiles>

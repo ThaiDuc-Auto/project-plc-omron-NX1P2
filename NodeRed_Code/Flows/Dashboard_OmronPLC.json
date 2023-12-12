@@ -1,0 +1,618 @@
+[
+    {
+        "id": "471f8e7ee0f66b48",
+        "type": "tab",
+        "label": "PLC Omron",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2e206ffc879bdbfe",
+        "type": "ui_text_input",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "label": "IP Address",
+        "tooltip": "",
+        "group": "494c79b252d7b414",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "ec076a37cf4f4b73"
+            ]
+        ]
+    },
+    {
+        "id": "df8127919b4fddfe",
+        "type": "ui_text_input",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "label": "Memory Address",
+        "tooltip": "",
+        "group": "1c265020067249b0",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "d8866e1928c4bf05"
+            ]
+        ]
+    },
+    {
+        "id": "4d5257823b960b03",
+        "type": "ui_button",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "group": "494c79b252d7b414",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Connect PLC",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "plc",
+        "payloadType": "flow",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "22c596683f123848",
+                "3e1ea0a8b826147d"
+            ]
+        ]
+    },
+    {
+        "id": "22c596683f123848",
+        "type": "ui_text",
+        "z": "471f8e7ee0f66b48",
+        "group": "494c79b252d7b414",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "PLC Address",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 570,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "5defcf2f65d6c8b3",
+        "type": "ui_button",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "group": "1c265020067249b0",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Read Memory",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "address",
+        "payloadType": "flow",
+        "topic": "payload",
+        "topicType": "msg",
+        "x": 340,
+        "y": 420,
+        "wires": [
+            [
+                "d698340791a963dc"
+            ]
+        ]
+    },
+    {
+        "id": "ec076a37cf4f4b73",
+        "type": "change",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "plc",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "4d5257823b960b03"
+            ]
+        ]
+    },
+    {
+        "id": "3e1ea0a8b826147d",
+        "type": "function",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "func": "var ip_address = msg.payload;\nvar ip = ip_address.split(\".\");\nvar node_ip = Math.floor(ip[3]);\n\nmsg.options = {\n    \"host\": ip_address,\n    \"port\": 9600,\n    \"protocol\": \"tcp\",\n    \"DNA\": 0,\n    \"DA1\": node_ip,\n    \"DA2\": 0,\n    \"SNA\": 0,\n    \"SA1\": 179,\n    \"SA2\": 0\n};\nmsg.topic=\"connect\";\nmsg.stat = \"Connected\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 180,
+        "wires": [
+            [
+                "8b285677c7ee827a",
+                "8febbe1829ea71b5"
+            ]
+        ]
+    },
+    {
+        "id": "8b285677c7ee827a",
+        "type": "FINS Control",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "connection": "97172f6a093bad4f",
+        "clockType": "json",
+        "clock": "",
+        "connectOptionsType": "msg",
+        "connectOptions": "options",
+        "msgPropertyType": "msg",
+        "msgProperty": "payload",
+        "commandType": "msg",
+        "command": "topic",
+        "x": 810,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d8866e1928c4bf05",
+        "type": "change",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "address",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 140,
+        "y": 420,
+        "wires": [
+            [
+                "5defcf2f65d6c8b3"
+            ]
+        ]
+    },
+    {
+        "id": "1f05696db7faa419",
+        "type": "ui_text",
+        "z": "471f8e7ee0f66b48",
+        "group": "1c265020067249b0",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Value",
+        "format": "{{msg.payload[0]}}",
+        "layout": "row-spread",
+        "x": 950,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "dbfab73d47ea9c0c",
+        "type": "ui_button",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "group": "494c79b252d7b414",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Disconnect PLC",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 340,
+        "y": 240,
+        "wires": [
+            [
+                "290ae4f496327bb2"
+            ]
+        ]
+    },
+    {
+        "id": "290ae4f496327bb2",
+        "type": "function",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "func": "\nmsg.topic=\"disconnect\";\nmsg.stat = \"Not Connected\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 240,
+        "wires": [
+            [
+                "8b285677c7ee827a",
+                "8febbe1829ea71b5"
+            ]
+        ]
+    },
+    {
+        "id": "d698340791a963dc",
+        "type": "FINS Read Multiple",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "connection": "97172f6a093bad4f",
+        "addressType": "flow",
+        "address": "address",
+        "msgPropertyType": "msg",
+        "msgProperty": "payload",
+        "outputFormatType": "unsignedkv",
+        "outputFormat": "",
+        "x": 590,
+        "y": 420,
+        "wires": [
+            [
+                "ec9f0a152c8701f9"
+            ]
+        ]
+    },
+    {
+        "id": "8febbe1829ea71b5",
+        "type": "ui_text",
+        "z": "471f8e7ee0f66b48",
+        "group": "494c79b252d7b414",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Status",
+        "format": "{{msg.stat}}",
+        "layout": "row-spread",
+        "x": 790,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "bc6826e2c80d5a38",
+        "type": "inject",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "props": [
+            {
+                "p": "stat",
+                "v": "Not Connected",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 570,
+        "y": 300,
+        "wires": [
+            [
+                "8febbe1829ea71b5"
+            ]
+        ]
+    },
+    {
+        "id": "98306518b8954fdd",
+        "type": "FINS Read",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "connection": "97172f6a093bad4f",
+        "addressType": "msg",
+        "address": "payload.address",
+        "countType": "msg",
+        "count": "payload.count",
+        "msgPropertyType": "msg",
+        "msgProperty": "payload",
+        "outputFormatType": "unsignedkv",
+        "outputFormat": "",
+        "x": 570,
+        "y": 520,
+        "wires": [
+            [
+                "32ecf725a0ffaa06"
+            ]
+        ]
+    },
+    {
+        "id": "a498a7de4ba2f697",
+        "type": "ui_form",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "label": "",
+        "group": "606d7c2232a5393b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Memory Start",
+                "value": "address",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Count",
+                "value": "count",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "address": "",
+            "count": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "x": 310,
+        "y": 520,
+        "wires": [
+            [
+                "98306518b8954fdd"
+            ]
+        ]
+    },
+    {
+        "id": "403030905fde942e",
+        "type": "inject",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"W12.0\":1,\"W12.1\":1,\"W12.2\":1,\"W12.3\":1,\"W12.4\":1,\"W12.5\":1,\"W12.6\":1,\"W12.7\":1,\"W12.8\":0,\"W12.9\":0,\"W12.10\":0,\"W12.11\":0,\"W12.12\":0,\"W12.13\":0,\"W12.14\":0,\"W12.15\":0}",
+        "payloadType": "json",
+        "x": 570,
+        "y": 600,
+        "wires": [
+            [
+                "32ecf725a0ffaa06",
+                "ec9f0a152c8701f9"
+            ]
+        ]
+    },
+    {
+        "id": "ec0ee1041864e016",
+        "type": "ui_table",
+        "z": "471f8e7ee0f66b48",
+        "group": "606d7c2232a5393b",
+        "name": "",
+        "order": 2,
+        "width": "6",
+        "height": "10",
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 950,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "32ecf725a0ffaa06",
+        "type": "function",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "func": "var el0 = msg.payload; //get element zero of your data\nvar arr = []; //a new array for populating results\n\nfor(let prop in el0) {\n  let val = el0[prop];\n  arr.push({\n    \"Address\": prop,\n    \"Value\": val\n  });\n}\n\nmsg.payload = arr; //set payload\nreturn msg; //return the msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 600,
+        "wires": [
+            [
+                "ec0ee1041864e016"
+            ]
+        ]
+    },
+    {
+        "id": "fe14189e4853e0a6",
+        "type": "comment",
+        "z": "471f8e7ee0f66b48",
+        "name": "Test inject array",
+        "info": "",
+        "x": 560,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "ec9f0a152c8701f9",
+        "type": "function",
+        "z": "471f8e7ee0f66b48",
+        "name": "",
+        "func": "var result = [];\nvar keys = Object.keys(msg.payload);\nfor(var i =0; i<keys.length;i++)\n{  \n  result.push(msg.payload[keys[i]]);\n}\n// At this point, result is an array of the values you want\n// You can either return it directly with:\nmsg.payload = result;\n\n// or, if you want a string representation of the values as a\n// comma-separated list:\n//    msg.payload = result.join(\", \");\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 420,
+        "wires": [
+            [
+                "1f05696db7faa419"
+            ]
+        ]
+    },
+    {
+        "id": "3c71ae3be47b551b",
+        "type": "comment",
+        "z": "471f8e7ee0f66b48",
+        "name": "Change from object to array",
+        "info": "",
+        "x": 860,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "74faca34ad48b13f",
+        "type": "comment",
+        "z": "471f8e7ee0f66b48",
+        "name": "Get IP Address and Connect",
+        "info": "",
+        "x": 160,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7b4f27cbfa7afbeb",
+        "type": "comment",
+        "z": "471f8e7ee0f66b48",
+        "name": "Conect PLC and show to Dashboard",
+        "info": "",
+        "x": 180,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "d0782778fc2b4906",
+        "type": "comment",
+        "z": "471f8e7ee0f66b48",
+        "name": "Get Address and show value",
+        "info": "",
+        "x": 160,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "291306262716b0eb",
+        "type": "comment",
+        "z": "471f8e7ee0f66b48",
+        "name": "Get Address and show value",
+        "info": "",
+        "x": 380,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "494c79b252d7b414",
+        "type": "ui_group",
+        "name": "IP Address",
+        "tab": "db9b67de896a8072",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "1c265020067249b0",
+        "type": "ui_group",
+        "name": "Read Memory",
+        "tab": "db9b67de896a8072",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "97172f6a093bad4f",
+        "type": "FINS Connection",
+        "name": "PLC1",
+        "host": "127.0.0.1",
+        "port": "9600",
+        "MODE": "",
+        "MODEType": "CS",
+        "protocol": "",
+        "protocolType": "env",
+        "ICF": "128",
+        "DNA": "",
+        "DA1": "",
+        "DA2": "",
+        "SNA": "",
+        "SA1": "",
+        "SA2": "",
+        "autoConnect": false
+    },
+    {
+        "id": "606d7c2232a5393b",
+        "type": "ui_group",
+        "name": "Read Memory Multiple Address",
+        "tab": "db9b67de896a8072",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "db9b67de896a8072",
+        "type": "ui_tab",
+        "name": "Read PLC Test",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

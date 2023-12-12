@@ -1,0 +1,459 @@
+[
+    {
+        "id": "2a82232f6910200c",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fbf7bf3a9c81fdfb",
+        "type": "inject",
+        "z": "2a82232f6910200c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 400,
+        "wires": [
+            [
+                "eb8e8693d9f57d5f"
+            ]
+        ]
+    },
+    {
+        "id": "eb8e8693d9f57d5f",
+        "type": "FINS Read",
+        "z": "2a82232f6910200c",
+        "name": "",
+        "connection": "8918d36641c5d692",
+        "addressType": "str",
+        "address": "D8",
+        "countType": "num",
+        "count": 1,
+        "msgPropertyType": "msg",
+        "msgProperty": "payload",
+        "outputFormatType": "signed",
+        "outputFormat": "",
+        "x": 460,
+        "y": 400,
+        "wires": [
+            [
+                "63419da859867dd3"
+            ]
+        ]
+    },
+    {
+        "id": "63419da859867dd3",
+        "type": "ui_gauge",
+        "z": "2a82232f6910200c",
+        "name": "",
+        "group": "101e3e8d230c64e1",
+        "order": 40,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 750,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "7a52c2ecb6472ab3",
+        "type": "ui_button",
+        "z": "2a82232f6910200c",
+        "name": "",
+        "group": "101e3e8d230c64e1",
+        "order": 42,
+        "width": 12,
+        "height": 1,
+        "passthru": false,
+        "label": "Start",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "81ac329887e79b3c"
+            ]
+        ]
+    },
+    {
+        "id": "81ac329887e79b3c",
+        "type": "FINS Write",
+        "z": "2a82232f6910200c",
+        "name": "write D7",
+        "connection": "8918d36641c5d692",
+        "addressType": "str",
+        "address": "D7",
+        "dataType": "msg",
+        "data": "payload",
+        "msgPropertyType": "str",
+        "msgProperty": "payload",
+        "x": 380,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a455436df5a7d4ed",
+        "type": "ui_button",
+        "z": "2a82232f6910200c",
+        "name": "",
+        "group": "101e3e8d230c64e1",
+        "order": 47,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "0028723059730ec2"
+            ]
+        ]
+    },
+    {
+        "id": "0028723059730ec2",
+        "type": "FINS Write",
+        "z": "2a82232f6910200c",
+        "name": "",
+        "connection": "8918d36641c5d692",
+        "addressType": "str",
+        "address": "D7",
+        "dataType": "msg",
+        "data": "payload",
+        "msgPropertyType": "str",
+        "msgProperty": "payload",
+        "x": 380,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1780836c87ea271",
+        "type": "ui_button",
+        "z": "2a82232f6910200c",
+        "name": "",
+        "group": "101e3e8d230c64e1",
+        "order": 41,
+        "width": 12,
+        "height": 1,
+        "passthru": false,
+        "label": "RESET",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [
+                "2a49572a21904cea"
+            ]
+        ]
+    },
+    {
+        "id": "2a49572a21904cea",
+        "type": "FINS Write",
+        "z": "2a82232f6910200c",
+        "name": "write D7",
+        "connection": "8918d36641c5d692",
+        "addressType": "str",
+        "address": "D8",
+        "dataType": "msg",
+        "data": "payload",
+        "msgPropertyType": "str",
+        "msgProperty": "payload",
+        "x": 440,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0cd83b4bc160efae",
+        "type": "ui_button",
+        "z": "2a82232f6910200c",
+        "name": "",
+        "group": "101e3e8d230c64e1",
+        "order": 48,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "SETPOINT",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "payload",
+        "payloadType": "flow",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "18b08f3e70c001d3"
+            ]
+        ]
+    },
+    {
+        "id": "18b08f3e70c001d3",
+        "type": "FINS Write",
+        "z": "2a82232f6910200c",
+        "name": "",
+        "connection": "8918d36641c5d692",
+        "addressType": "str",
+        "address": "D5",
+        "dataType": "msg",
+        "data": "payload",
+        "msgPropertyType": "str",
+        "msgProperty": "payload",
+        "x": 380,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0c014c3e675ca0fb",
+        "type": "ui_button",
+        "z": "2a82232f6910200c",
+        "name": "",
+        "group": "101e3e8d230c64e1",
+        "order": 43,
+        "width": 12,
+        "height": 1,
+        "passthru": false,
+        "label": "ON 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 480,
+        "wires": [
+            [
+                "47e78d6a22e48efa"
+            ]
+        ]
+    },
+    {
+        "id": "47e78d6a22e48efa",
+        "type": "FINS Write",
+        "z": "2a82232f6910200c",
+        "name": "write D9",
+        "connection": "8918d36641c5d692",
+        "addressType": "str",
+        "address": "D9",
+        "dataType": "msg",
+        "data": "payload",
+        "msgPropertyType": "str",
+        "msgProperty": "payload",
+        "x": 400,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "36bf28292add5d73",
+        "type": "ui_button",
+        "z": "2a82232f6910200c",
+        "name": "",
+        "group": "101e3e8d230c64e1",
+        "order": 44,
+        "width": 12,
+        "height": 1,
+        "passthru": false,
+        "label": "OFF 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 540,
+        "wires": [
+            [
+                "47e78d6a22e48efa"
+            ]
+        ]
+    },
+    {
+        "id": "4e822aec5c0d8bb5",
+        "type": "ui_button",
+        "z": "2a82232f6910200c",
+        "name": "",
+        "group": "101e3e8d230c64e1",
+        "order": 45,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "ON 2",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 550,
+        "y": 480,
+        "wires": [
+            [
+                "89feae7b068b1f4b"
+            ]
+        ]
+    },
+    {
+        "id": "89feae7b068b1f4b",
+        "type": "FINS Write",
+        "z": "2a82232f6910200c",
+        "name": "write D9",
+        "connection": "8918d36641c5d692",
+        "addressType": "str",
+        "address": "D10",
+        "dataType": "msg",
+        "data": "payload",
+        "msgPropertyType": "str",
+        "msgProperty": "payload",
+        "x": 760,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30c8ae415945ef10",
+        "type": "ui_button",
+        "z": "2a82232f6910200c",
+        "name": "",
+        "group": "101e3e8d230c64e1",
+        "order": 46,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "OFF 2",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 550,
+        "y": 540,
+        "wires": [
+            [
+                "89feae7b068b1f4b"
+            ]
+        ]
+    },
+    {
+        "id": "8918d36641c5d692",
+        "type": "FINS Connection",
+        "name": "NX1P2",
+        "host": "192.168.250.1",
+        "port": "9600",
+        "MODE": "",
+        "MODEType": "NX",
+        "protocol": "",
+        "protocolType": "udp",
+        "ICF": "0x80",
+        "DNA": "",
+        "DA1": "1",
+        "DA2": "",
+        "SNA": "",
+        "SA1": "179",
+        "SA2": "",
+        "autoConnect": true
+    },
+    {
+        "id": "101e3e8d230c64e1",
+        "type": "ui_group",
+        "name": "control_out_modul_5121",
+        "tab": "b3d12ddd05832ab8",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b3d12ddd05832ab8",
+        "type": "ui_tab",
+        "name": "OD5121",
+        "icon": "control_out_OD5121",
+        "disabled": false,
+        "hidden": false
+    }
+]

@@ -1,0 +1,4 @@
+HOST	NAME	DATATYPE	ADDRESS	COMMENT	TAGLINK	RW	POU
+	start_hmi	BOOL			TRUE	RW	
+	stop_hmi	BOOL			TRUE	RW	
+	dong_co	BOOL	BuiltInIO://cpu/#0/Output_Bit_00		TRUE	RW	
